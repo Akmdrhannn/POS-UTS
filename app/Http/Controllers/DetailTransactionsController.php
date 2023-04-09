@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\detail_transactions;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
 class DetailTransactionsController extends Controller
@@ -14,7 +15,9 @@ class DetailTransactionsController extends Controller
      */
     public function index()
     {
-        //
+        $detail_transactionsModel = DB::table('detail_transactions')->select('detail_transactions.*', 'products.name')->join('products', 'detail_transactions.products_id', '=', 'products.id_products')->get();
+
+        return view('/admin/trd', compact('detail_transactionsModel'));
     }
 
     /**
@@ -44,9 +47,8 @@ class DetailTransactionsController extends Controller
      * @param  \App\Models\detail_transactions  $detail_transactions
      * @return \Illuminate\Http\Response
      */
-    public function show(detail_transactions $detail_transactions)
+    public function show($id)
     {
-        //
     }
 
     /**

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\transactions;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class TransactionsController extends Controller
 {
@@ -14,7 +15,9 @@ class TransactionsController extends Controller
      */
     public function index()
     {
-        //
+        $transactionsModel = DB::table('transactions')->select('transactions.*', 'users.username')->join('users', 'transactions.users_id', '=', 'users.id')->get();
+
+        return view('/admin/tr', compact('transactionsModel'));
     }
 
     /**

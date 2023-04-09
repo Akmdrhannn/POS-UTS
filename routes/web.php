@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\DetailTransactionsController;
+use App\Http\Controllers\TransactionsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/admin/transaction/', [TransactionsController::class, 'index'])->name('showtr');
+Route::get('/admin/transaction/{id}/details', [DetailTransactionsController::class, 'index']);
