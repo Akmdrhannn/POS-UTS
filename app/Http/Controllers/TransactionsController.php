@@ -67,7 +67,7 @@ class TransactionsController extends Controller
                 return back();
             }
         }
-        
+
         $count = 0;
         foreach ($cart_items as $key => $item) {
             $product = products::find($item->products_id);

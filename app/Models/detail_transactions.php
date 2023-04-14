@@ -13,7 +13,7 @@ class detail_transactions extends Model
 
         'products_id',
         'transactions_id',
-        'qty', 
+        'qty',
         'sub_total'
     ];
 
@@ -22,7 +22,8 @@ class detail_transactions extends Model
         return $this->belongsTo(transactions::class);
     }
 
-    public function produk(){
+    public function produk()
+    {
         return $this->belongsTo(products::class, 'products_id');
     }
 }

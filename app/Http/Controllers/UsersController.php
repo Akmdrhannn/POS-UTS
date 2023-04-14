@@ -19,7 +19,7 @@ class UsersController extends Controller
     public function index()
     {
         $category = categories::all();
-        return view('user.page_profile',compact('category'));
+        return view('user.page_profile', compact('category'));
     }
 
     /**

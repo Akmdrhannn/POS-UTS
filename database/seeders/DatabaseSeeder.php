@@ -45,15 +45,15 @@ class DatabaseSeeder extends Seeder
         ]);
 
         $faker = Faker::create('id_ID');
-        for($i = 1; $i <=15;$i++){
+        for ($i = 1; $i <= 15; $i++) {
             DB::table('products')->insert([
-                'id_products'=> Str::random(3),
-                'categories_id'=> $faker->numberBetween(1,5),
-                'users_id'=> $faker->numberBetween(1,2),
+                'id_products' => Str::random(3),
+                'categories_id' => $faker->numberBetween(1, 5),
+                'users_id' => $faker->numberBetween(1, 2),
                 'name' => $faker->unique()->randomElement($product),
                 'description' => $faker->paragraph,
-                'price' => $faker->numberBetween(20000,50000),
-                'stock' => $faker->numberBetween(1,10),
+                'price' => $faker->numberBetween(20000, 50000),
+                'stock' => $faker->numberBetween(1, 10),
                 'slug' => Str::random(10),
                 'image' => $faker->randomElement(['dafault'])
             ]);

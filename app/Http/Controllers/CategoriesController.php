@@ -7,6 +7,7 @@ use App\Models\transactions;
 use Illuminate\Http\Request;
 use RealRashid\SweetAlert\Facades\Alert;
 
+
 class CategoriesController extends Controller
 {
     /**
@@ -19,8 +20,7 @@ class CategoriesController extends Controller
 
 
         $category = categories::paginate(5);
-        return view('admin.category.index',compact('category') );
-
+        return view('admin.category.index', compact('category'));
     }
 
     /**
